@@ -1,0 +1,29 @@
+﻿TalepNo,Başlık,Açıklama,Oluşturan_Kişi,Durum,Oluşturma_Tarihi
+31,Virüs,Bilgisayara virüs bulaştu,Umut Tuncer,Yeni,2026-09-29
+34,Excl,Excell açılınca fanlardan ses çıkıyor,Ahmet Karadağ,Yeni,2026-09-29
+35,Su dökülmesi,"Klavyeme su döküldü, yenisini istiyorum",Seyfi Yılmaz,Onaylandı,2026-09-29
+46,Yeni laptop,Yazılım ekibi için laptop,Ayşe Yılmaz,Onaylandı,2026-09-01
+47,Monitör talebi,İkinci monitör ihtiyacı,Mehmet Demir,Reddedildi,2026-09-03
+48,VPN erişimi,Uzaktan çalışma için VPN,Zeynep Kaya,Revizyon Bekliyor,2026-09-05
+49,Yazıcı arızası,3. kattaki yazıcı çalışmıyor,Ali Çelik,Yeni,2026-09-10
+50,Lisans yenileme,Office lisansı bitiyor,Fatma Şahin,Onaylandı,2026-09-12
+51,Toplantı odası,Projeksiyon cihazı arızalı,Can Aydın,Onaylandı,2026-09-15
+52,Eğitim talebi,Docker eğitimi isteği,Elif Arslan,Revizyon Bekliyor,2026-09-18
+53,Klavye değişimi,Tuşları basmıyor,Burak Koç,Reddedildi,2026-09-20
+54,Sunucu erişimi,Test sunucusuna SSH yetkisi,Deniz Öztürk,Yeni,2026-09-25
+55,Telefon hattı,Yeni personel için hat,Selin Yıldız,Onaylandı,2026-09-28
+56,Mouse değişimi,Mouse tekerleği bozuk,Emre Şimşek,Onaylandı,2025-11-04
+57,Yazılım kurulumu,Visual Studio kurulumu gerekli,Merve Aksoy,Yeni,2025-12-10
+58,E-posta kotası,"Posta kutusu doldu, kota artışı",Kerem Doğan,Reddedildi,2026-01-15
+59,Masa değişikliği,Ayarlanabilir masa isteği,Büşra Güneş,Revizyon Bekliyor,2026-02-02
+60,Kulaklık talebi,Toplantılar için mikrofonlu kulaklık,Oğuz Kurt,Onaylandı,2026-02-20
+61,Yetki güncelleme,Muhasebe klasörüne erişim,Gizem Polat,Onaylandı,2026-03-08
+62,Veritabanı yedeği,Haftalık yedekleme kurulmalı,Hakan Erdem,Yeni,2026-04-11
+63,Wi-Fi sorunu,2. katta bağlantı kopuyor,Seda Kılıç,Reddedildi,2026-05-06
+64,Proje sunucusu,Yeni proje için sanal sunucu,Murat Özdemir,Revizyon Bekliyor,2026-05-27
+65,Kamera talebi,Uzaktan toplantılar için web kamerası,Ece Tekin,Onaylandı,2026-06-14
+66,İzin sistemi hatası,İzin formu gönderilemiyor,Serkan Aslan,Reddedildi,2026-07-03
+67,Güvenlik duvarı,Test ortamı için port açılması,Derya Yavuz,Yeni,2026-07-22
+68,Tablet ihtiyacı,Saha ekibi için tablet,Tolga Kaplan,Revizyon Bekliyor,2026-08-09
+69,Rapor ekranı hatası,Aylık rapor boş geliyor,Nur Bulut,Onaylandı,2026-08-30
+70,Harici disk,Arşiv dosyaları için 2 TB disk,Onur Çetin,Yeni,2026-09-22

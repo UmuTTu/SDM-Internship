@@ -1,0 +1,31 @@
+GET http://localhost:5046/demands
+### 
+GET http://localhost:5046/demands/1231233
+###
+POST  http://localhost:5046/demands
+Content-Type: application/json
+
+{
+    "TalepNo": ,
+    "Başlık": "",
+    "Açıklama": "asdasdas",
+    "Oluşturan_Kişi": "12312342",
+    "Durum": "Revizyon",
+    "Oluşturma_Tarihi": "2025-12-01"
+
+
+}
+###
+PUT  http://localhost:5046/demands/1
+Content-Type: application/json
+
+{
+    "TalepNo": 1,
+    "Başlık": "ahmet",
+    "Açıklama": "dafssf",
+    "Oluşturan_Kişi": "Mehmet",
+    "Durum": "rebi123123131223zyon",
+    "Oluşturma_Tarihi": "2025-12-01"
+}
+###
+DELETE  http://localhost:5046/demands/1233123
