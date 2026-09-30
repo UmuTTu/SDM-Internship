@@ -2,7 +2,8 @@ import csv
 import sqlite3
 
 Db_Path = "DemandTrack.Api/Demand.db"
-Csv_Path = "demands.csv"
+Csv_Path = "DemandTrack.Api/Python/demands.csv"
+
 
 conn = sqlite3.connect(Db_Path)
 cursor = conn.execute("SELECT * FROM Demands")
