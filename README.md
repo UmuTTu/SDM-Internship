@@ -10,7 +10,7 @@ Arayüz React ile yazıldı. Talep istatistikleri Python ile hesaplanıyor. Api'
 -Tarayıcıdan **[http://localhost:5173]** adresinden siteye erişebilirsiniz.
 
 ## Proje Detayları:
--**Frontend tarafında** "Yeni talep oluşturma" sitenin en üstünde, Tarih (2020/1/1 - Günümüz) aralığında olmalı ve format YYYY-DD-MM şeklindedir.
--"Talebin durumunu değiştirme" ve "Talebi silme" direkt olarak talebin sağındadır. Sağ üstteki rapor butonu ile Talep istatistikleri "Alert" olarak pop up ile ekrana gösterilir.
+- **"Frontend tarafında"** "Yeni talep oluşturma" sitenin en üstünde, Tarih (2020/1/1 - Günümüz) aralığında olmalı ve format YYYY-DD-MM şeklindedir.
+- **"Talebin durumunu değiştirme"** ve "Talebi silme" direkt olarak talebin sağındadır. Sağ üstteki rapor butonu ile Talep istatistikleri "Alert" olarak pop up ile ekrana gösterilir.
 - **DemandTrack.Api/Python/Report.py** talepleri **demands.csv** dosyasına aktarır. Ardından toplam, onaylanan, reddedilen ve revizyon bekleyen talepleri hesaplar.
 - **Hata mesajları:** Arayüz, hatalı girişlerin çoğunu form üzerinde engeller. Olmayan bir talebi silmek ya da geçersiz veri göndermek gibi durumlar Swagger üzerinden test edilebilir.
