@@ -9,7 +9,12 @@ async function request(url, options = {}) {
 export async function getReport() {
   const res = await fetch('/demands/report');
   const text = await res.text();
-  if (!res.ok) throw new Error('Rapor oluşturulamadı: ' + text);
+  if (!res.ok) {
+    // API hatayı ProblemDetails JSON'u olarak döner; sadece açıklamayı göster
+    let detay = text || `Sunucu ${res.status} hatası döndü.`;
+    try { detay = JSON.parse(text).detail ?? detay; } catch { /* JSON olmayan yanıt */ }
+    throw new Error('Rapor oluşturulamadı: ' + detay);
+  }
   return text;
 }
 

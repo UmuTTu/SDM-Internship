@@ -12,6 +12,26 @@ public static class Demands_Endpoints
     static DemandDTO ToDto(Demand d) =>
         new(d.TalepNo, d.Başlık, d.Açıklama, d.Oluşturan_Kişi, d.Durum, d.Oluşturma_Tarihi);
 
+    // Python traceback'ini kullanıcının anlayacağı tek satırlık bir mesaja çevirir
+    static string RaporHatasiniAcikla(string stderr)
+    {
+        // Traceback'in son satırı asıl hatadır (ör. "PermissionError: [Errno 13] ...")
+        var sonSatir = stderr.Trim().Split('\n').Last().Trim();
+
+        if (sonSatir.StartsWith("PermissionError"))
+            return "demands.csv dosyasına yazılamadı. Dosya başka bir programda (ör. Excel) açık olabilir; kapatıp tekrar deneyin.";
+        if (sonSatir.Contains("no such table"))
+            return "Veritabanında talepler tablosu bulunamadı. Veritabanının oluşturulduğundan emin olun.";
+        if (sonSatir.StartsWith("sqlite3."))
+            return "Veritabanı okunamadı: " + sonSatir;
+        if (sonSatir.StartsWith("FileNotFoundError"))
+            return "Rapor için gereken bir dosya ya da klasör bulunamadı: " + sonSatir;
+
+        return sonSatir.Length > 0
+            ? "Python betiği hata verdi: " + sonSatir
+            : "Python betiği beklenmedik şekilde sonlandı.";
+    }
+
 public static void MapDemandsEndpoints(this WebApplication app)
 {
     var group = app.MapGroup("/demands").WithTags("Talepler");
@@ -32,7 +52,7 @@ group.MapGet("/{TalepNos:int}", async (int TalepNos, DemandContext dbContext) =>
 
 
 // GET /demands/report (Swagger'da görünmez)
-group.MapGet("/report", async (IWebHostEnvironment env) =>
+group.MapGet("/report", async (IWebHostEnvironment env, ILogger<Program> logger) =>
 {
     var api_root = env.ContentRootPath;
     var script_path = Path.Combine(api_root, "Python", "Report.py");
@@ -49,14 +69,30 @@ group.MapGet("/report", async (IWebHostEnvironment env) =>
     };
     psi.Environment["PYTHONIOENCODING"] = "utf-8";
 
-    using var process = Process.Start(psi)!;
-    var ciktiTask = process.StandardOutput.ReadToEndAsync();
-    var hataTask = process.StandardError.ReadToEndAsync();
-    await process.WaitForExitAsync();
+    Process process;
+    try
+    {
+        process = Process.Start(psi)!;
+    }
+    catch (System.ComponentModel.Win32Exception)
+    {
+        return Results.Problem("Python bulunamadı. Python'un kurulu olduğundan ve 'py' komutunun çalıştığından emin olun.",
+            title: "Rapor oluşturulamadı");
+    }
 
-    return process.ExitCode == 0
-        ? Results.Text(await ciktiTask, "text/plain;")
-        : Results.Problem(await hataTask, title: "Rapor oluşturulamadı");
+    using (process)
+    {
+        var ciktiTask = process.StandardOutput.ReadToEndAsync();
+        var hataTask = process.StandardError.ReadToEndAsync();
+        await process.WaitForExitAsync();
+
+        if (process.ExitCode == 0)
+            return Results.Text(await ciktiTask, "text/plain;");
+
+        var hata = await hataTask;
+        logger.LogError("Report.py {ExitCode} koduyla sonlandı:\n{Hata}", process.ExitCode, hata);
+        return Results.Problem(RaporHatasiniAcikla(hata), title: "Rapor oluşturulamadı");
+    }
 }).WithSummary("Tüm taleplerin raporunu oluşturur")
 .WithDescription("Rapor oluşturulamadıysa hata mesajını döner.");
 
