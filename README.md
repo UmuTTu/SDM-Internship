@@ -14,6 +14,7 @@ Arayüz React ile yazıldı. Talep istatistikleri Python ile hesaplanıyor. Api'
 - **Talebin durumunu değiştirme** ve "Talebi silme" direkt olarak talebin sağındadır. Sağ üstteki rapor butonu ile Talep istatistikleri "Alert" olarak pop up ile ekrana gösterilir.
 - **DemandTrack.Api/Python/Report.py** talepleri **demands.csv** dosyasına aktarır. Ardından toplam, onaylanan, reddedilen ve revizyon bekleyen talepleri hesaplar.
 - **Hata mesajları:** Arayüz, hatalı girişlerin çoğunu form üzerinde engeller. Olmayan bir talebi silmek ya da geçersiz veri göndermek gibi durumlar Swagger üzerinden test edilebilir.
+
 ##Feedback Sonrası:
 -Rapor oluşturulurken Python yoksa: "Python bulunamadı. Python'un kurulu olduğundan ve 'py' komutunun çalıştığından emin olun." hatası anlaşılır bir biçimde veriliyor.
 
