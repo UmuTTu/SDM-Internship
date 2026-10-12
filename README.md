@@ -26,3 +26,4 @@ Arayüz React ile yazıldı. Talep istatistikleri Python ile hesaplanıyor. Api'
 - Sayfanın altında (20-50-100) diye seçerek bir sayfada kaç sıra gösterileceğini seçebilir, aynı sırada sağda önceki ve sonraki butonları ile farklı sayfalar arasında hareket edebilirsiniz.
 - Talep tarihi ekleme kaldırıldı artık otomatik olarak bugünün tarihine ekliyor.
 - TalepNo ve Database ID birbirinden ayrıldı, Talep no TN(AYIN GÜNÜ)(SAAT)(DAKİKA) olarak oluşturuluyor, eğer aynı TalepNo'dan başka var ise +1 ekleniyor, sonu 9 ile bitiyorsa 0'a geri dönüyor. Daha önce oluşturulan Taleplerde bu sistem olmadığı için "Gün" kısmından sonra sonları direkt "0000" ile bitiyor.
+- Sütunları Tarih, Başlık, Oluşturan kişi vb. kategorilerine tıklayarak sıralayabilirsiniz, 3. basışta sıralamayı bırakıyor.
