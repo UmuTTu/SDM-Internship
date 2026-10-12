@@ -19,7 +19,7 @@ namespace DemandTrack.Api.Data.Migrations
 
             modelBuilder.Entity("DemandTrack.Api.Models.Demand", b =>
                 {
-                    b.Property<int>("TalepNo")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -42,9 +42,54 @@ namespace DemandTrack.Api.Data.Migrations
                     b.Property<DateOnly>("Oluşturma_Tarihi")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("TalepNo");
+                    b.Property<string>("TalepNo")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TalepNo")
+                        .IsUnique();
 
                     b.ToTable("Demands");
+                });
+
+            modelBuilder.Entity("DemandTrack.Api.Models.DemandStatusLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("ChangedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("DemandId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("NewStatus")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OldStatus")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DemandId");
+
+                    b.ToTable("DemandStatusLogs");
+                });
+
+            modelBuilder.Entity("DemandTrack.Api.Models.DemandStatusLog", b =>
+                {
+                    b.HasOne("DemandTrack.Api.Models.Demand", "Demand")
+                        .WithMany()
+                        .HasForeignKey("DemandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Demand");
                 });
 #pragma warning restore 612, 618
         }

@@ -4,7 +4,7 @@ namespace DemandTrack.Api.DTOS;
 //Shared agreement of data transfer and use of it
 public record /*clasas*/ DemandDTO
 (
-    int TalepNo,
+    string TalepNo,
     string  Başlık,
     string Açıklama,
     string Oluşturan_Kişi,

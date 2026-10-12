@@ -8,5 +8,6 @@ namespace DemandTrack.Api.Data
     {
         // Define your DbContext properties and methods here
         public DbSet<Demand> Demands => Set<Demand>();
+        public DbSet<DemandStatusLog> DemandStatusLogs => Set<DemandStatusLog>();
     }
 }

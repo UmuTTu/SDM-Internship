@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DemandTrack.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4fb28ddc5bca330ba53e37f7b7f4c87a6ef2187f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24715ac4b3c545f17741e4bfb518dfef8472a36b")]
 [assembly: System.Reflection.AssemblyProductAttribute("DemandTrack.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DemandTrack.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

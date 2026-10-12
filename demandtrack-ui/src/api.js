@@ -18,7 +18,10 @@ export async function getReport() {
   return text;
 }
 
-export const getDemands   = ()      => request('/demands');
+// params: { page, pageSize, sortBy, sortDirection } -> { items, totalCount, page, pageSize }
+export const getDemands   = (params) => request(`/demands?${new URLSearchParams(params)}`);
+export const getStatusHistory = (demandNo) => request(`/demands/${demandNo}/status-history`);
 export const createDemand = (d)     => request('/demands', { method: 'POST', body: JSON.stringify(d) });
-export const updateDemand = (id, d) => request(`/demands/${id}`, { method: 'PUT', body: JSON.stringify(d) });
-export const deleteDemand = (id)    => request(`/demands/${id}`, { method: 'DELETE' });
+export const updateDemand  = (demandNo, d) => request(`/demands/${demandNo}`, { method: 'PUT', body: JSON.stringify(d) });
+export const deleteDemand  = (demandNo)    => request(`/demands/${demandNo}`, { method: 'DELETE' });
+export const deleteDemands = (demandNos)   => request('/demands/bulk-delete', { method: 'POST', body: JSON.stringify(demandNos) });
